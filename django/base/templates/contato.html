@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load bootstrap5 %}
+{% block principal %}
+<h1>Página de Contato</h1>
+<p>
+    Envie uma mensagem através do Formulario abaixo ou ligue para o telefone {{telefone}} e fale com {{responsavel}}
+</p> 
+{% if sucesso %}
+<p class="alert alert-success">Mensagem enviada com sucesso</p>
+{% else %}
+
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% bootstrap_form formulario %}
+    <hr>
+    <button type="submit" class="btn btn-primary">Enviar Mesangem</button>
+</form>
+{% endif %}
+{% endblock %}            
+        
+
